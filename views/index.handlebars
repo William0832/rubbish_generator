@@ -1,0 +1,48 @@
+<h1 class="text-white text-center py-4">你想對誰講幹話?</h1>
+
+<form method="POST" action="/" class="container form-check">
+
+  <div class="card-deck mb-2 text-center">
+    {{!-- TODO: 有時間再嘗試改用Handlebars #each 改寫 --}}
+    <div class="card" style="width: 18rem;">
+      <img src="https://assets-lighthouse.s3.amazonaws.com/uploads/image/file/5668/angry-developer.jpg"
+        class="card-img-bottom" alt="engineer">
+      <div class="card-body mt-5">
+        <input class='mr-2 form-check-input' type="radio" name="target" value='engineer' {{#if checkResult.engineer}}
+          checked {{/if}}>
+        <label class="form-check-label" for="target">工程師</label>
+      </div>
+    </div>
+
+    <div class="card" style="width: 18rem;">
+      <img src="https://assets-lighthouse.s3.amazonaws.com/uploads/image/file/5667/angry-designer.jpg"
+        class="card-img-top" alt="engineer">
+      <div class="card-body form-check mt-2">
+        <input class='mr-2 form-check-input' type="radio" name="target" value='designer' {{#if checkResult.designer}}
+          checked {{/if}}>
+        <label class="form-check-label" for="target">設計師</label>
+      </div>
+    </div>
+
+    <div class="card" style="width: 18rem;">
+      <img src="https://assets-lighthouse.s3.amazonaws.com/uploads/image/file/5669/angry-founder.jpg"
+        class="card-img-top" alt="engineer">
+      <div class="card-body form-check mt-4">
+        <input class='mr-2 form-check-input' type="radio" name="target" value='founder' {{#if checkResult.founder}}
+          checked {{/if}}>
+        <label class="form-check-label" for="target">創業家</label>
+      </div>
+    </div>
+
+  </div>
+  {{!-- result display --}}
+  <div class="row no-gutters text-center">
+    <div class="col-2">
+      <button class=" btn btn-info p-3 my-2" type="submit">幹話生成</button>
+    </div>
+    <div class="col-10 alert alert-secondary py-3 my-2" role="alert">
+      {{rubbish}}
+    </div>
+  </div>
+
+</form>
